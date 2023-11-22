@@ -4,7 +4,7 @@ import plotly.graph_objs as go
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
-server: app.server
+server= app.server
 
 #Base de datos
 from pymongo.mongo_client import MongoClient
