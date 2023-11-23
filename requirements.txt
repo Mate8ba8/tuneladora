@@ -1,5 +1,6 @@
 dash==2.6.0
 plotly
 dash_bootstrap_components
-pymongo==3.12.0
+pymongo==3.10
 gunicorn
+dnspython
