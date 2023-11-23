@@ -25,6 +25,14 @@ data_dist = []
 
 # App layout
 app.layout = dbc.Container([
+    dbc.Row(
+            [
+                html.Div(
+    html.Img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Escudo_UD.svg/512px-Escudo_UD.svg.png", style={'width': '20%'}),
+    style={'text-align': 'center'}
+),
+]
+    ),
     html.H1("Asentamiento Tuneladora", style={'text-align': 'center'}),
     html.H6("ANDRES FELIPE DIAZ MAZORCA-20231579057", style={'text-align': 'rigth'}),
     html.H6("JUAN DANIEL SANDOVAL LIZARAZO-20231579041", style={'text-align': 'rigth'}),
@@ -42,9 +50,20 @@ app.layout = dbc.Container([
             html.P("Una tuneladora es una máquina para cavar túneles subterráneos. Para medir los asentamientos durante la excavación en tiempo real, se utilizan sensores, los cuales proporcionan datos continuos que se transmiten a una base de datos subida a Mongo, permitiendo la detección temprana de cambios en el suelo. Los sistemas de alerta temprana que se emiten por medio de estos sensores nos ayudara a saber cuando deberemos a implementar una lechada. La integración con tecnologías de visualización ofrece representaciones visuales en tiempo real, mejorando la supervisión y la seguridad del proceso de construcción del túnel.", style={'text-align': 'right'})
         ], style={'float': 'right', 'width': '50%'})
     ]),
+
+    html.Hr(), 
+    html.Hr(), 
+
     html.Hr(),
     html.H4("TUNELADORA A ESCALA", style={'text-align': 'center'}),
-    html.Img(src= "https://ingenieriaenlared.files.wordpress.com/2013/01/ingenieria-en-la-red-bertha-tbm.jpg?w=400"),
+    html.Div(
+    html.Img(src="https://ingenieriaenlared.files.wordpress.com/2013/01/ingenieria-en-la-red-bertha-tbm.jpg?w=400"),
+    style={'text-align': 'center'}
+),
+
+html.Hr(), 
+html.Hr(), 
+
     html.H4(id='distancia-actual', style={'text-align': 'center'}),
     dcc.Graph(id='asentamiento'),
     dcc.Interval(
@@ -55,6 +74,8 @@ app.layout = dbc.Container([
     html.Div(id='alerta-texto', style={'text-align': 'center', 'margin-top': '10px'})
 
 ])
+
+
 
 @app.callback(
     [Output('asentamiento', 'figure'),
@@ -78,8 +99,8 @@ def consultar(n):
         type="line",
         x0=0,
         x1=len(data_dist),
-        y0=1600,
-        y1=1600,
+        y0=15,
+        y1=15,
         line=dict(color="red", width=2),
     )
     
@@ -98,5 +119,7 @@ def consultar(n):
 
 if __name__ == "__main__":
     app.run_server(debug=True)
+
+    
 
     
