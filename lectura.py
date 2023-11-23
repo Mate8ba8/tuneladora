@@ -32,6 +32,10 @@ app.layout = dbc.Container([
     style={'text-align': 'center'}
 ),
 ]
+        
+html.Hr(), 
+html.Hr(), 
+        
     ),
     html.H1("Asentamiento Tuneladora", style={'text-align': 'center'}),
     html.H6("ANDRES FELIPE DIAZ MAZORCA-20231579057", style={'text-align': 'rigth'}),
